@@ -1,6 +1,6 @@
 TicketX: Open Source Support Ticket system
 ============================================
-> TicketX is a Open Source Support Ticket system released under the MIT license. It is built with the awesome Laravel Framwork. It includes Socialite logins, roles & permissions, ticket system, responsive email templates and much more.
+> TicketX is a Open Source Support Ticket system released under the MIT license. It is built with the awesome Laravel 5.2 Framwork. It includes Socialite logins, roles & permissions, ticket system, responsive email templates and much more.
 
 
 
@@ -14,6 +14,7 @@ TicketX: Open Source Support Ticket system
 
 ### Features
 
+* Laravel 5.2
 * Register/Login/Logout/Password Reset
 * Authentication/Users/Roles/Permissions (zizaco/entrust)
 * Third party login (Github/Facebook/Twitter/Google)
