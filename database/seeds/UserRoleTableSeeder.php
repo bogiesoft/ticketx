@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
 use App\RoleUser;
+use Illuminate\Database\Seeder;
 
 class UserRoleTableSeeder extends Seeder
 {
@@ -13,22 +12,22 @@ class UserRoleTableSeeder extends Seeder
      */
     public function run()
     {
-        $newrole = new RoleUser;
+        $newrole = new RoleUser();
         $newrole->role_id = '1';
         $newrole->user_id = '1';
         $newrole->timestamps = false;
         $newrole->save();
-        
-        $newrole = new RoleUser;
+
+        $newrole = new RoleUser();
         $newrole->role_id = '2';
         $newrole->user_id = '2';
         $newrole->timestamps = false;
-        $newrole->save();    
-        
-        $newrole = new RoleUser;
+        $newrole->save();
+
+        $newrole = new RoleUser();
         $newrole->role_id = '3';
         $newrole->user_id = '3';
         $newrole->timestamps = false;
-        $newrole->save();          
+        $newrole->save();
     }
 }

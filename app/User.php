@@ -7,9 +7,8 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable
 {
-    
     use EntrustUserTrait;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -17,7 +16,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'fullname', 'username', 'email', 'password', 'provider_id', 'provider',
-        'avatar', 'gender', 'location', 'website', 'oauth_token', 'oauth_token_secret'
+        'avatar', 'gender', 'location', 'website', 'oauth_token', 'oauth_token_secret',
     ];
 
     /**
@@ -31,8 +30,8 @@ class User extends Authenticatable
 
     public function getAvatarUrl()
     {
-        if(is_null($this->avatar)) {
-            return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($this->email))) . "?d=mm&s=40";
+        if (is_null($this->avatar)) {
+            return 'http://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email))).'?d=mm&s=40';
         }
 
         return $this->avatar;

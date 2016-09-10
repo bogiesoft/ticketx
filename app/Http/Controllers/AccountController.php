@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Auth;
-use Hash;
 use Cloudder;
-use App\Http\Requests;
+use Hash;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
@@ -25,20 +23,18 @@ class AccountController extends Controller
         return view('account.dashboard')->withAccount($this->user);
     }
 
-
     public function updateProfile(Request $request)
     {
         $this->validate($request, [
-            'email'     => 'required|email|min:3|unique:users,email,'. $this->id,
-            'fullname'  => 'required|min:3'
+            'email'     => 'required|email|min:3|unique:users,email,'.$this->id,
+            'fullname'  => 'required|min:3',
         ]);
 
         $values = $request->all();
         $this->user->fill($values)->save();
 
-        return redirect()->back()->with('info','Your Profile has been updated successfully');
+        return redirect()->back()->with('info', 'Your Profile has been updated successfully');
     }
-
 
     public function updateAvatar(Request $request)
     {
@@ -46,18 +42,17 @@ class AccountController extends Controller
             'file_name'     => 'required|mimes:jpeg,bmp,png|between:1,7000',
         ]);
 
-        $filename  = $request->file('file_name')->getRealPath();
+        $filename = $request->file('file_name')->getRealPath();
 
         Cloudder::upload($filename, null);
         list($width, $height) = getimagesize($filename);
 
-        $fileUrl = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height]);
+        $fileUrl = Cloudder::show(Cloudder::getPublicId(), ['width' => $width, 'height' => $height]);
 
         $this->user->update(['avatar' => $fileUrl]);
 
         return redirect()->back()->with('info', 'Your Avatar has been updated Successfully');
     }
-    
 
     public function changePassword(Request $request)
     {
@@ -70,19 +65,16 @@ class AccountController extends Controller
 
         return redirect()->back()->with('info', 'Password successfully updated');
     }
-    
 
     public function redirectToConfirmDeletePage()
     {
         return view('account.confirm');
     }
-    
 
     public function dontDeleteAccount()
     {
         return redirect('/account');
     }
-    
 
     public function deleteAccount(Request $request)
     {
@@ -90,7 +82,6 @@ class AccountController extends Controller
 
         $request->session()->flush();
 
-        return redirect("/");
+        return redirect('/');
     }
-    
 }

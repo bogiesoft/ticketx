@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
 use App\Priority;
+use Illuminate\Database\Seeder;
 
 class PriorityTableSeeder extends Seeder
 {
@@ -13,16 +12,16 @@ class PriorityTableSeeder extends Seeder
      */
     public function run()
     {
-        $createPriority = new Priority;
+        $createPriority = new Priority();
         $createPriority->name = 'Critical';
         $createPriority->save();
-        
-        $createPriority = new Priority;
+
+        $createPriority = new Priority();
         $createPriority->name = 'Normal';
         $createPriority->save();
-        
-        $createPriority = new Priority;
+
+        $createPriority = new Priority();
         $createPriority->name = 'Low';
-        $createPriority->save();        
+        $createPriority->save();
     }
 }

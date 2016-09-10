@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
-use App\Http\Requests;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Request;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use Session;
 
@@ -27,7 +26,7 @@ class OauthController extends Controller
 
     public function execute($request, $provider)
     {
-        if (! $request) {
+        if (!$request) {
             return $this->getAuthorizationFirst($provider);
         }
 
@@ -38,7 +37,7 @@ class OauthController extends Controller
     }
 
     /**
-     * Find a user by username or create a new user
+     * Find a user by username or create a new user.
      *
      * @param $userData
      * @param $provider
@@ -55,19 +54,18 @@ class OauthController extends Controller
 
         $username = $this->isUsernameExists($userData->getNickName()) ? null : $userData->getNickName();
 
-        $tokenSecret = property_exists($userData, "tokenSecret") ? $userData->tokenSecret : null;
+        $tokenSecret = property_exists($userData, 'tokenSecret') ? $userData->tokenSecret : null;
 
-        if (empty($user))  {
-
+        if (empty($user)) {
             $user = User::create([
-                'fullname'      => $userData->getName(),
-                'username'      => $username,
-                'provider_id'   => $userData->getId(),
-                'avatar'        => $userData->getAvatar(),
-                'email'         => $email,
-                'provider'      => $provider,
-                'oauth_token'   => $userData->token,
-                'oauth_token_secret'   => $tokenSecret
+                'fullname'             => $userData->getName(),
+                'username'             => $username,
+                'provider_id'          => $userData->getId(),
+                'avatar'               => $userData->getAvatar(),
+                'email'                => $email,
+                'provider'             => $provider,
+                'oauth_token'          => $userData->token,
+                'oauth_token_secret'   => $tokenSecret,
             ]);
 
             Session::put('provider', $provider);
@@ -80,36 +78,37 @@ class OauthController extends Controller
     {
         $username = User::whereUsername($username)->first()['username'];
 
-        return (! is_null($username)) ? true : false;
+        return (!is_null($username)) ? true : false;
     }
 
     private function isEmailExists($email = null)
     {
         $email = User::whereEmail($email)->first()['email'];
 
-        return (! is_null($email)) ? true : false;
+        return (!is_null($email)) ? true : false;
     }
 
     /**
-     * Check if the user's info needs updating
+     * Check if the user's info needs updating.
+     *
      * @param $userData
      * @param $user
      */
     public function checkIfUserNeedsUpdating($userData, $user)
     {
         $socialData = [
-            'avatar' => $userData->getAvatar(),
+            'avatar'   => $userData->getAvatar(),
             'fullname' => $userData->getName(),
             'username' => $userData->getNickName(),
         ];
 
         $dbData = [
-            'avatar' => $user->avatar,
+            'avatar'   => $user->avatar,
             'fullname' => $user->fullname,
             'username' => $user->username,
         ];
 
-        if (! empty(array_diff($dbData, $socialData))) {
+        if (!empty(array_diff($dbData, $socialData))) {
             $user->avatar = $userData->getAvatar();
             $user->fullname = $userData->getName();
             $user->username = $userData->getNickName();
@@ -118,8 +117,10 @@ class OauthController extends Controller
     }
 
     /**
-     * Redirect the user to the Social Media Account authentication page
+     * Redirect the user to the Social Media Account authentication page.
+     *
      * @param $provider
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     private function getAuthorizationFirst($provider)
@@ -128,8 +129,10 @@ class OauthController extends Controller
     }
 
     /**
-     * Get Data from Social Media Account
-     * @param  string $provider
+     * Get Data from Social Media Account.
+     *
+     * @param string $provider
+     *
      * @return collection
      */
     private function getSocialUser($provider)
