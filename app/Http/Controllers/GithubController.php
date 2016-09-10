@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use GrahamCampbell\GitHub\GitHubManager;
 
 class GithubController extends Controller
@@ -16,7 +15,7 @@ class GithubController extends Controller
     const GITHUB_HANDLE = 'unicodeveloper';
 
     /**
-     * Initialize the Controller with necessary arguments
+     * Initialize the Controller with necessary arguments.
      *
      * @param GitHubManager $github
      */

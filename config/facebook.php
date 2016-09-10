@@ -38,15 +38,15 @@ return [
     'connections' => [
 
         'main' => [
-            'app_id' => env('FACEBOOK_CLIENT_ID'),
-            'app_secret' => env('FACEBOOK_CLIENT_SECRET'),
+            'app_id'                => env('FACEBOOK_CLIENT_ID'),
+            'app_secret'            => env('FACEBOOK_CLIENT_SECRET'),
             'default_graph_version' => 'v2.4',
             //'default_access_token' => null,
         ],
 
         'alternative' => [
-            'app_id' => env('FACEBOOK_CLIENT_ID'),
-            'app_secret' => env('FACEBOOK_CLIENT_SECRET'),
+            'app_id'                => env('FACEBOOK_CLIENT_ID'),
+            'app_secret'            => env('FACEBOOK_CLIENT_SECRET'),
             'default_graph_version' => 'v2.4',
             //'default_access_token' => null,
         ],

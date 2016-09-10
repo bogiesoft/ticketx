@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
 use App\Permission;
+use Illuminate\Database\Seeder;
 
 class PermissionTableSeeder extends Seeder
 {
@@ -13,40 +12,40 @@ class PermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        $createPermission = new Permission;
+        $createPermission = new Permission();
         $createPermission->display_name = 'Manage Roles';
         $createPermission->name = 'manage-roles';
         $createPermission->description = 'Permission for Managing Roles';
         $createPermission->save();
-        
-        $createPermission = new Permission;
+
+        $createPermission = new Permission();
         $createPermission->display_name = 'Manage Tickets';
         $createPermission->name = 'manage-tickets';
         $createPermission->description = 'Permission for Managing Tickets';
-        $createPermission->save();        
+        $createPermission->save();
 
-        $createPermission = new Permission;
+        $createPermission = new Permission();
         $createPermission->display_name = 'Manage Users';
         $createPermission->name = 'manage-users';
         $createPermission->description = 'Permission for Managing Users';
-        $createPermission->save();     
-        
-        $createPermission = new Permission;
+        $createPermission->save();
+
+        $createPermission = new Permission();
         $createPermission->display_name = 'View Backend';
         $createPermission->name = 'view-backend';
         $createPermission->description = 'Permission for Viewing Backend';
-        $createPermission->save();     
-        
-        $createPermission = new Permission;
+        $createPermission->save();
+
+        $createPermission = new Permission();
         $createPermission->display_name = 'Manage Permissions';
         $createPermission->name = 'manage-permissions';
         $createPermission->description = 'Permission for Managing Permissions';
-        $createPermission->save();            
- 
-        $createPermission = new Permission;
+        $createPermission->save();
+
+        $createPermission = new Permission();
         $createPermission->display_name = 'Manage Settings';
         $createPermission->name = 'manage-settings';
         $createPermission->description = 'Permission for Managing Settings';
-        $createPermission->save();          
+        $createPermission->save();
     }
 }

@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use Twitter;
-use Session;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use Session;
+use Twitter;
 
 class TwitterController extends Controller
 {
     /**
-     * Item to be searched for, combing through twitter's massive data
+     * Item to be searched for, combing through twitter's massive data.
+     *
      * @var string
      */
     protected $searchItem;
 
     /**
-     * Initialize the Controller with necessary arguments
+     * Initialize the Controller with necessary arguments.
      */
     public function __construct()
     {
@@ -25,12 +25,13 @@ class TwitterController extends Controller
     }
 
     /**
-     * Return all tweets to the Twitter API dashboard
+     * Return all tweets to the Twitter API dashboard.
+     *
      * @return mixed
      */
     public function getPage()
     {
-        if( Session::get('provider') !== 'twitter') {
+        if (Session::get('provider') !== 'twitter') {
             Auth::logout();
 
             Session::flush();
@@ -44,7 +45,8 @@ class TwitterController extends Controller
     }
 
     /**
-     * Get the latest tweets on a user timeline
+     * Get the latest tweets on a user timeline.
+     *
      * @return Collection
      */
     private function getLatestTweets()
@@ -53,8 +55,10 @@ class TwitterController extends Controller
     }
 
     /**
-     * Search for tweets based on a search query
-     * @param  string $item
+     * Search for tweets based on a search query.
+     *
+     * @param string $item
+     *
      * @return Collection
      */
     private function searchForTweets($item)
@@ -63,8 +67,10 @@ class TwitterController extends Controller
     }
 
     /**
-     * Post a tweet to the timeline
-     * @param  Request $request
+     * Post a tweet to the timeline.
+     *
+     * @param Request $request
+     *
      * @return string
      */
     public function sendTweet(Request $request)
@@ -73,7 +79,7 @@ class TwitterController extends Controller
             'tweet' => 'required',
         ]);
 
-        $tweet = $request->input('tweet') . ' #LaravelHackathonStarter';
+        $tweet = $request->input('tweet').' #LaravelHackathonStarter';
 
         Twitter::reconfig(['token' => Auth::user()->getAccessToken(), 'secret' => Auth::user()->getAccessTokenSecret()]);
 

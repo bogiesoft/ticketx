@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Facebook;
 use Auth;
+use Facebook;
 use Session;
 
 class FacebookController extends Controller
@@ -12,12 +11,13 @@ class FacebookController extends Controller
     protected $user;
 
     /**
-     * Return all data to the Facebook API dashboard
+     * Return all data to the Facebook API dashboard.
+     *
      * @return mixed
      */
     public function getPage()
     {
-        if(Session::get('provider') !== 'facebook') {
+        if (Session::get('provider') !== 'facebook') {
             Auth::logout();
 
             Session::flush();
@@ -30,14 +30,13 @@ class FacebookController extends Controller
         return view('api.facebook')->withDetails($userDetails);
     }
 
-
     /**
      * @return mixed
      */
     private function getData()
     {
-       $data = Facebook::get('/me?fields=id,name,cover,email,gender,first_name,last_name,locale,timezone,link,picture', Auth::user()->getAccessToken());
+        $data = Facebook::get('/me?fields=id,name,cover,email,gender,first_name,last_name,locale,timezone,link,picture', Auth::user()->getAccessToken());
 
-      return json_decode($data->getGraphUser(),true);
+        return json_decode($data->getGraphUser(), true);
     }
 }
