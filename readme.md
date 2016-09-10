@@ -10,7 +10,7 @@ TicketX: Open Source Support Ticket system
 > Maybe this project can help other learn Laravel
 
 
-![](http://ticket.stiligt.no/screenshot/2.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/2.png)
 
 ### Features
 
@@ -70,13 +70,13 @@ Grab the API Key, and enter it in .env file.
 
 ### Screenshots
 
-![](http://ticket.stiligt.no/screenshot/1.png)
-![](http://ticket.stiligt.no/screenshot/3.png)
-![](http://ticket.stiligt.no/screenshot/4.png)
-![](http://ticket.stiligt.no/screenshot/5.png)
-![](http://ticket.stiligt.no/screenshot/6.png)
-![](http://ticket.stiligt.no/screenshot/7.png)
-![](http://ticket.stiligt.no/screenshot/8.png)
-![](http://ticket.stiligt.no/screenshot/9.png)
-![](http://ticket.stiligt.no/screenshot/10.png)
-![](http://ticket.stiligt.no/screenshot/12.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/1.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/3.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/4.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/5.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/6.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/7.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/8.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/9.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/10.png)
+![](https://raw.githubusercontent.com/w00p/ticketx/master/public/screenshot/12.png)
